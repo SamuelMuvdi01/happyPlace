@@ -12,15 +12,35 @@
 <body>
     <div id="mainDiv">
 
+        <div id="temp-div">
+            <h3 id="city-name">City</h3>
+            <h2 id="temp-num">Temp°</h3>
+        </div>
+        <div id="text-div">
+            <textarea name="returnField" id="returnField" cols="50" rows="10" placeholder="Returns information..."></textarea>
+        </div>
+
+        <div id="search-div">
+            <input type="text" id="search-box" placeholder="Enter Information...">
+            <select id="selection-box">
+<option value="byCity">By City</option>
+<option value="byTemp">By Temperature</option>
+<option value="byCovid">By Covid Pop</option>
+<option value="byLanguage">By Language</option>
+<option value="byClimate">By Climate</option>
+
+            </select>
+            <button type="submit" id="submit-button">Search</button>
 
 
+        </div>
     </div>
 
 
 
 
 
-    <script src="" async defer></script>
+    <script src="app.js" async defer></script>
 </body>
 
 </html>
