@@ -1,0 +1,67 @@
+body {
+    background-image: linear-gradient(45deg, khaki, #FFC72C);
+    font-family: -apple-system-body, BlinkMacSystemFont, sans-serif;
+}
+
+#mainDiv {
+    border-radius: 5%;
+    border: 5px solid whitesmoke;
+    text-align: center;
+    justify-content: center;
+    height: 80%;
+    width: 50%;
+    top: 100px;
+    left: 500px;
+    position: absolute;
+    background-image: linear-gradient(45deg, #7CB9E8, #318CE7, #007FFF);
+}
+
+#temp-div {
+    height: 20%;
+    width: 35%;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 30px;
+    text-align: center;
+    color: white;
+    font-size: 36px;
+}
+
+#search-div {
+    height: 15%;
+    width: 65%;
+    top: 200px;
+    position: relative;
+    padding: 0px 0px 0px 20px;
+}
+
+input[type="text"] {
+    right: 88px;
+    position: relative;
+    height: 35%;
+    width: 45%;
+    margin: 10px;
+}
+
+#selection-box {
+    width: 25%;
+    height: 41%;
+    position: relative;
+    right: 60px;
+}
+
+#text-div {
+    top: 20px;
+    height: 30%;
+    width: 80%;
+    position: relative;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+#submit-button {
+    left: 50px;
+    width: 100px;
+    height: 25px;
+    display: block;
+}
