@@ -1,129 +1,149 @@
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-div#header-text {
-    font-size: 45px;
-    font-family: 'Special Elite', cursive;
-    text-align: center;
+html,
+body {
+  height: 100%;
 }
 
-div#header {
-    padding: 20px;
-    height: 45px;
-    box-shadow: 0px -7px 20px 0px #00000030;
-    width: calc(100% - 40px);
-    position: relative;
-    z-index: 1;
+header {
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+
+  width: auto;
+  height: auto;
+
+  background: rgb(0, 167, 225);
+  background: linear-gradient(
+    45deg,
+    rgba(0, 167, 225, 1) 0%,
+    rgba(247, 237, 240, 1) 80%,
+    rgba(244, 238, 169, 1) 89%,
+    rgba(244, 244, 130, 1) 99%
+  );
+  border-bottom: 0.5vh solid #f7edf0;
+  box-shadow: 0px 1em 20px 0px #00000030;
+
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.header-text {
+  font-size: 2.5em;
+  font-family: "Comfortaa", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    sans-serif;
+}
 
-div#left-panel {
-    float: left;
-    height: calc(87% - 85px);
-    width: 20%;
-    background: white;
-    z-index: 1;
-    overflow-y: auto;
-    position: absolute;
-    left: 2%;
-    top: 13%;
-    border-radius: 5px;
+#left-panel {
+  float: left;
+  margin-left: 2.5vw;
+  margin-top: 12vh;
+  height: calc(100% - 28vh);
+  width: 25%;
+  background: white;
+
+  z-index: 1;
+  overflow-y: auto;
+  position: absolute;
+
+  border-radius: 1em;
 }
 
 #map-container {
-    height: calc(100% - 85px);
-    width: 100%;
-    float: left;
+  height: calc(100% - 85px);
+  width: 100%;
+  float: left;
 }
 
-#map{
-    height: 100%;
-    width: 100%;
+#map {
+  height: 100%;
+  width: 100%;
 }
 
 .city-list-item {
-    display: table;
-    padding: 20px;
-    cursor: pointer;
-    width: calc(100% - 40px);
-    border-bottom: 1px solid #00000026;
-    font-family: 'Comfortaa', cursive;
+  display: table;
+  padding: 20px;
+  cursor: pointer;
+  width: calc(100% - 40px);
+  border-bottom: 1px solid #00000026;
+  font-family: "Comfortaa", cursive;
 }
 
-.city-list-item:hover{
-    background-color:#00000063;
-    color:white;
-
+.city-list-item:hover {
+  background-color: #00000063;
+  color: white;
 }
 
 .city-name {
-    font-size: 30px;
-    float: left;
+  font-size: 30px;
+  float: left;
 }
 
 .city-temp {
-    float: right;
-    position: relative;
-    font-size: 30px;
-    right: 10px;
-    top: 10px;
-    font-weight: bold;
+  float: right;
+  position: relative;
+  font-size: 30px;
+  right: 10px;
+  top: 10px;
+  font-weight: bold;
 }
 
 .city-desc {
-    width: 100%;
-    display: table;
-    padding-top: 10px;
+  width: 100%;
+  display: table;
+  padding-top: 10px;
 }
 /* Scroll Bar css */
 ::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px rgba(128, 128, 128, 0); 
-    border-radius: 10px;
- 
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: rgb(0, 0, 0); 
-    border-radius: 10px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #b30000; 
-  }
+  width: 10px;
+}
 
-  /* Mobile css */
-  @media screen and (max-width: 900px){
-      #left-panel{
-          position: relative !important;
-          left: 0px !important;
-          top:0px !important;
-          height:calc(100% - 65px) !important;
-          width: 30% !important;
-      }
-      .city-name,.city-temp{
-          font-size:20px;
-      }
-      #map-container{
-          width:70% !important;
-          height:calc(100% - 65px);
-      }
-      #header{
-          height: 30px !important;
-      }
-      #header-text{
-          font-size: 30px !important;
-      }
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgba(128, 128, 128, 0);
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(0, 0, 0);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
+
+/* Mobile css */
+@media screen and (max-width: 900px) {
+  #left-panel {
+    position: relative !important;
+    left: 0px !important;
+    top: 0px !important;
+    height: calc(100% - 65px) !important;
+    width: 30% !important;
   }
+  .city-name,
+  .city-temp {
+    font-size: 20px;
+  }
+  #map-container {
+    width: 70% !important;
+    height: calc(100% - 65px);
+  }
+  #header {
+    height: 30px !important;
+  }
+  #header-text {
+    font-size: 30px !important;
+  }
+}
