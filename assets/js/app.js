@@ -45,9 +45,12 @@ let getDataByCityId = function(id){
     });
 }
 let populate = function(data){
-
     $list_obj = $("<div></div>").attr("id",data.id)
-        .addClass("city-list-item");
+        .addClass("city-list-item")
+        .click(function(){
+            const center = new google.maps.LatLng(data.coord.lat, data.coord.lon);
+            map.panTo(center);
+        });
     
     $city = $("<div></div>").attr("id",data.name)
         .addClass("city-name")
