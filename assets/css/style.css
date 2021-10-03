@@ -45,7 +45,7 @@ header {
 #left-panel {
   float: left;
   margin-left: 2.5vw;
-  margin-top: 12vh;
+  margin-top: 12.5vh;
   height: calc(100% - 28vh);
   width: 25%;
   background: white;
