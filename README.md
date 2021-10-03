@@ -10,6 +10,6 @@ TBD
 
 Contributors names and contact info
 
-ex. Samuel Muvdi  
-ex. Issachar Vinajeras <br>
+Samuel Muvdi  
+Issachar Vinajeras  
 Daniel Carlson
