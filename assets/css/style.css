@@ -81,7 +81,7 @@ div#left-panel {
     display: table;
     padding-top: 10px;
 }
-
+/* Scroll Bar css */
 ::-webkit-scrollbar {
     width: 10px;
   }
@@ -102,4 +102,28 @@ div#left-panel {
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #b30000; 
+  }
+
+  /* Mobile css */
+  @media screen and (max-width: 900px){
+      #left-panel{
+          position: relative !important;
+          left: 0px !important;
+          top:0px !important;
+          height:calc(100% - 65px) !important;
+          width: 30% !important;
+      }
+      .city-name,.city-temp{
+          font-size:20px;
+      }
+      #map-container{
+          width:70% !important;
+          height:calc(100% - 65px);
+      }
+      #header{
+          height: 30px !important;
+      }
+      #header-text{
+          font-size: 30px !important;
+      }
   }
