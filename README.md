@@ -10,5 +10,5 @@ An in-depth paragraph about your project and overview of use.
 
 Contributors names and contact info
 
-ex. Samuel Muvdi
+ex. Samuel Muvdi  
 ex. Issachar Vinajeras  
