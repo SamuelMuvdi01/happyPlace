@@ -1,0 +1,102 @@
+[
+    {
+        "id": 5856195,
+        "name": "Honolulu",
+        "state": "HI",
+        "country": "US",
+        "coord": {
+            "lon": -157.858337,
+            "lat": 21.30694
+        }
+    },
+    {
+        "id": 4164138,
+        "name": "Miami",
+        "state": "FL",
+        "country": "US",
+        "coord": {
+            "lon": -80.193657,
+            "lat": 25.774269
+        }
+    },
+    {
+        "id": 5391959,
+        "name": "San Francisco",
+        "state": "CA",
+        "country": "US",
+        "coord": {
+            "lon": -122.419418,
+            "lat": 37.774929
+        }
+    },
+    {
+        "id": 5128581,
+        "name": "New York City",
+        "state": "NY",
+        "country": "US",
+        "coord": {
+            "lon": -74.005966,
+            "lat": 40.714272
+        }
+    },
+    {
+        "id": 4887398,
+        "name": "Chicago",
+        "state": "IL",
+        "country": "US",
+        "coord": {
+            "lon": -87.650047,
+            "lat": 41.850029
+        }
+    },
+    {
+        "id": 2643743,
+        "name": "London",
+        "state": "",
+        "country": "GB",
+        "coord": {
+            "lon": -0.12574,
+            "lat": 51.50853
+        }
+    },
+    {
+        "id": 2968815,
+        "name": "Paris",
+        "state": "",
+        "country": "FR",
+        "coord": {
+            "lon": 2.3486,
+            "lat": 48.853401
+        }
+    },
+    {
+        "id": 3169070,
+        "name": "Rome",
+        "state": "",
+        "country": "IT",
+        "coord": {
+            "lon": 12.4839,
+            "lat": 41.894741
+        }
+    },
+    {
+        "id": 524894,
+        "name": "Moscow",
+        "state": "",
+        "country": "RU",
+        "coord": {
+            "lon": 37.606667,
+            "lat": 55.761665
+        }
+    },
+    {
+        "id": 2542007,
+        "name": "Kingdom of Morocco",
+        "state": "",
+        "country": "MA",
+        "coord": {
+            "lon": -5.0,
+            "lat": 32.0
+        }
+    }
+]
