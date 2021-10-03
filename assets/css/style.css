@@ -63,7 +63,7 @@ div#heatMapToggle {
 	border-radius: 5px;
 	cursor: pointer;
 	position: absolute;
-	top: 29px;
+	top: 30px;
     left: 30px;
 	background: white;
 }
@@ -71,8 +71,8 @@ div#heatMapToggle {
 div#heatMapToggle.enabled {
 	background: #0062b7;
     color: white;
-	top: 26px;
-	left: 27px;
+	top: 30px;
+	left: 30px;
 }
 
 #map-container {
