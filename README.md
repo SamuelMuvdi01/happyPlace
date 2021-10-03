@@ -11,4 +11,5 @@ TBD
 Contributors names and contact info
 
 ex. Samuel Muvdi  
-ex. Issachar Vinajeras  
+ex. Issachar Vinajeras
+Daniel Carlson
