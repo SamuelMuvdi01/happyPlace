@@ -4,7 +4,7 @@ Webapp that will allow users to find destinations for travel based on their weat
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+TBD
 
 ## Authors
 
