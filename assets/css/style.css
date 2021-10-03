@@ -64,8 +64,8 @@ div#heatMapToggle {
 	border: 1px solid black;
 	cursor: pointer;
 	position: absolute;
-	top: 20px;
-	left: 20px;
+	top: 29px;
+    left: 30px;
 	background: white;
 }
 
@@ -95,8 +95,8 @@ div#heatMapToggle.enabled {
 	font-family: "Comfortaa", cursive;
 }
 
-.city-list-item:hover {
-	background-color: #00000063;
+.city-list-item.active {
+	background-color: #01a8e1;
 	color: white;
 }
 
@@ -132,13 +132,13 @@ div#heatMapToggle.enabled {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-	background: rgb(0, 0, 0);
+	background: rgb(209, 209, 209);
 	border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-	background: #b30000;
+	background: #004f8f;
 }
 
 /* Mobile css */

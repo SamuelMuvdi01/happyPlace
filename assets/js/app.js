@@ -73,7 +73,8 @@ let populate = function(data){
                 position: center,
                 title:data.name
             });
-            
+            $(".active").removeClass("active");
+            $(this).addClass("active");
             // To add the marker to the map, call setMap();
             marker.setMap(map);
         });
