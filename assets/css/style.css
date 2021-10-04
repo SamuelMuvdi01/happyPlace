@@ -130,6 +130,11 @@ div#left-panel {
 	font-family: "Comfortaa", cursive;
 }
 
+.city-list-item:hover{
+	background:#477b8d;
+	color:white;
+}
+
 .city-list-item.active {
 	background-color: #01a8e1;
 	color: white;
