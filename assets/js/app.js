@@ -235,6 +235,9 @@ $("#sort-arrow").click(function(){
 });
 
 $(".option").click(function(){
+    $(".option").each(function(){        
+        $(this).hide();
+    });
     $(".option.active").removeClass("active");
     $(this).addClass("active");
     let sortType = $(this).attr("sort");

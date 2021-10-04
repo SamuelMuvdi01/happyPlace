@@ -92,12 +92,12 @@ div#toolbox {
     position: absolute;
     top: 30%;
     left: 2%;
-    width: 20%;
+    min-width: 600px;
+	width: 20%;
 }
 
 div#left-panel {
     float: left;
-    width: 20%;
     background: white;
     z-index: 1;
     overflow-y: auto;
@@ -107,6 +107,7 @@ div#left-panel {
     border-radius: 5px;
 	height: calc(87% - (4.5vh + 44px));
 	min-width: 600px;
+	width: 20%;
 }
 
 #map-container {
@@ -194,6 +195,7 @@ div#left-panel {
 		top: 0px !important;
 		height: calc(100% - 65px) !important;
 		width: 30% !important;
+		min-width: 300px !important;
 	}
 	.city-name,
 	.city-temp {
@@ -212,6 +214,18 @@ div#left-panel {
 	div#heatMapToggle {
 		top:10px;
 		left:10px;
+	}
+	.city-forecast{
+		width:100% !important;
+	}
+	.forecast-item{
+		width: auto;
+		float:none ;
+		border-right: 0px;
+		border-top:1px solid rgba(0, 0, 0, 0.521)
+	}
+	.forecast-item:first-child{
+		border: 0px;
 	}
 }
 /* Scroll Bar css */
