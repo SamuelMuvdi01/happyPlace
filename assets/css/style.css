@@ -79,7 +79,7 @@ div#sort-arrow {
 
 
 div#sort-by.open {
-    box-shadow: 0px 400px 6px 2px #0000005e;
+    box-shadow: 0px 0px 6px 2px #0000005e;
 }
 div#sort-by {
 	margin-top:.5vh;
@@ -120,7 +120,8 @@ div#toolbox {
 div#left-panel {
     float: left;
     background: white;
-    z-index: 2;
+    z-index: 1;
+	position: absolute;
     overflow-y: auto;
 
     margin-left: 2vw;
