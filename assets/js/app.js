@@ -30,6 +30,14 @@ function initMap(lat,long) {
     map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: lat, lng: long },
         zoom: 8,
+        panControl: true,
+        zoomControl: true,
+        mapTypeControl: false,
+        scaleControl: true,
+        streetViewControl: true,
+        overviewMapControl: true,
+        rotateControl: true,
+        fullscreenControl: false
     });   
     if(heatMapEnabled){
         var heatMap = new google.maps.ImageMapType({
@@ -105,7 +113,7 @@ let getDataByCityId = function(id){
     });
 }
 
-$("#sort-by").click(function(){ 
+$("#sort-arrow").click(function(){ 
     $(this).toggleClass("open");
     if($(this).hasClass("open")) {  
         $(".option").each(function(){        
@@ -154,6 +162,13 @@ let sortBy = function(typ,dir){
     $(result).appendTo("#left-panel");
 }
 
+$(".option").click(function(){
+    $(".option.active").removeClass("active");
+    $(this).addClass("active");
+    let sortType = $(this).attr("sort");
+    sortBy(sortType,sortDirection);
+});
+
 $.getJSON("assets/js/default_list.json", function(json) {
     for(let loc in json){
         //console.log(json[loc])
@@ -169,9 +184,4 @@ $("#heatMapToggle").click(function(){
 });
 
 
-$(".option").click(function(){
-    $(".option.active").removeClass("active");
-    $(this).addClass("active");
-    let sortType = $(this).attr("sort");
-    sortBy(sortType,sortDirection);
-});
+
