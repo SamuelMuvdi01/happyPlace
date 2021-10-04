@@ -98,5 +98,85 @@
             "lon": -5.0,
             "lat": 32.0
         }
+    },
+    {
+        "id": 1850147,
+        "name": "Tokyo",
+        "state": "",
+        "country": "JP",
+        "coord": {
+            "lon": 139.691711,
+            "lat": 35.689499
+        }
+    },
+    {
+        "id": 2147714,
+        "name": "Sydney",
+        "state": "",
+        "country": "AU",
+        "coord": {
+            "lon": 151.207321,
+            "lat": -33.867851
+        }
+    },
+    {
+        "id": 1275339,
+        "name": "Mumbai",
+        "state": "",
+        "country": "IN",
+        "coord": {
+            "lon": 72.847939,
+            "lat": 19.01441
+        }
+    },
+    {
+        "id": 1668338,
+        "name": "Taipei City",
+        "state": "",
+        "country": "TW",
+        "coord": {
+            "lon": 121.650269,
+            "lat": 25.048611
+        }
+    },
+    {
+        "id": 3435907,
+        "name": "Buenos Aires",
+        "state": "",
+        "country": "AR",
+        "coord": {
+            "lon": -60.0,
+            "lat": -36.0
+        }
+    },
+    {
+        "id": 5368361,
+        "name": "Los Angeles",
+        "state": "CA",
+        "country": "US",
+        "coord": {
+            "lon": -118.243683,
+            "lat": 34.052231
+        }
+    },
+    {
+        "id": 3531673,
+        "name": "Cancún",
+        "state": "",
+        "country": "MX",
+        "coord": {
+            "lon": -86.846558,
+            "lat": 21.17429
+        }
+    },
+    {
+        "id": 3489854,
+        "name": "Kingston",
+        "state": "",
+        "country": "JM",
+        "coord": {
+            "lon": -76.793579,
+            "lat": 17.997021
+        }
     }
 ]

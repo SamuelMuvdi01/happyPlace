@@ -4,6 +4,10 @@ let map;
 
 let heatMapEnabled = false;
 
+let sortDirection = false;
+
+let weatherData = {};
+
 var options = {
     enableHighAccuracy: true,
     timeout: 5000,
@@ -47,7 +51,6 @@ function initMap(lat,long) {
 // const key = '5bc768cc9df2685fbc7ab678cfaeb95e';
 const key = '431a4a6cc1ba0a9c9b9ac7071f861685'
 
-
 //url for searching by city id
 const city_id_url = (id) =>
     `https://api.openweathermap.org/data/2.5/weather?units=imperial&id=${id}&appid=${key}`;
@@ -55,31 +58,12 @@ const city_id_url = (id) =>
 const temp_map_url = (z,x,y) => 
     `https://tile.openweathermap.org/map/temp_new/${z}/${x}/${y}.png?appid=${key}`;
 
-let getDataByCityId = function(id){
-    let url = city_id_url(id)
-    //console.log(url);
-    $.get(url, function( wdata ){
-        //console.log(wdata);
-        populate(wdata);
-    });
-}
 let populate = function(data){
+    weatherData[data.id] = data;
     $list_obj = $("<div></div>").attr("id",data.id)
-        .addClass("city-list-item")
-        .click(function(){
-            const center = new google.maps.LatLng(data.coord.lat, data.coord.lon);
-            map.panTo(center);
-            var marker = new google.maps.Marker({
-                position: center,
-                title:data.name
-            });
-            $(".city-list-item.active").removeClass("active");
-            $(this).addClass("active");
-            // To add the marker to the map, call setMap();
-            marker.setMap(map);
-        });
+        .addClass("city-list-item");
     
-    $city = $("<div></div>").attr("id",data.name)        
+    $city = $("<div></div>").attr("id",data.id + "-name")        
         .addClass("city-name")
         .text(data.name)
         .appendTo($list_obj);
@@ -97,18 +81,29 @@ let populate = function(data){
     $list_obj.appendTo("#left-panel");
 }
 
-$.getJSON("assets/js/default_list.json", function(json) {
-    for(let loc in json){
-        //console.log(json[loc])
-        getDataByCityId(json[loc].id);
-    }
-});
+$("#left-panel").on('click','.city-list-item', function(){
+    data = weatherData[$(this).attr("id")];
+    console.log(data);
+    const center = new google.maps.LatLng(data.coord.lat, data.coord.lon);
+    map.panTo(center);
+    var marker = new google.maps.Marker({
+        position: center,
+        title:data.name
+    });
+    $(".city-list-item.active").removeClass("active");
+    $(this).addClass("active");
+    // To add the marker to the map, call setMap();
+    marker.setMap(map);
+})
 
-$("#heatMapToggle").click(function(){
-    $(this).toggleClass("enabled");
-    heatMapEnabled = !heatMapEnabled;
-    navigator.geolocation.getCurrentPosition(success, error, options);
-});
+let getDataByCityId = function(id){
+    let url = city_id_url(id)
+    //console.log(url);
+    $.get(url, function( wdata ){
+        //console.log(wdata);
+        populate(wdata);
+    });
+}
 
 $("#sort-by").click(function(){ 
     $(this).toggleClass("open");
@@ -124,7 +119,8 @@ $("#sort-by").click(function(){
     }
 });
 
-let sortBy = function(typ){
+let sortBy = function(typ,dir){
+    sortDirection = !sortDirection;
     console.log("sorting by: " + typ);
     var result = $(".city-list-item").sort(function(a,b) {
         let selector = "";
@@ -148,17 +144,34 @@ let sortBy = function(typ){
             contentA = parseInt(contentA);
             contentB = parseInt(contentB);
         }
-        
-        return (contentA < contentB) ? -1 : (contentA > contentB) ? 1 : 0;
+        if(dir)
+            return (contentA < contentB) ? 1 : (contentA > contentB) ? -1 : 0;
+        else
+            return (contentA < contentB) ? -1 : (contentA > contentB) ? 1 : 0;
     });
     console.log(result);
     $("#left-panel").empty();
     $(result).appendTo("#left-panel");
 }
 
+$.getJSON("assets/js/default_list.json", function(json) {
+    for(let loc in json){
+        //console.log(json[loc])
+        getDataByCityId(json[loc].id);
+    }
+    sortBy("temp",sortDirection);
+});
+
+$("#heatMapToggle").click(function(){
+    $(this).toggleClass("enabled");
+    heatMapEnabled = !heatMapEnabled;
+    navigator.geolocation.getCurrentPosition(success, error, options);
+});
+
+
 $(".option").click(function(){
     $(".option.active").removeClass("active");
     $(this).addClass("active");
     let sortType = $(this).attr("sort");
-    sortBy(sortType);
+    sortBy(sortType,sortDirection);
 });
