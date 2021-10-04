@@ -123,7 +123,6 @@ div#left-panel {
     z-index: 1;
 	position: absolute;
     overflow-y: auto;
-
     margin-left: 2vw;
     margin-top: 4vh;
     border-radius: 5px;
@@ -133,7 +132,7 @@ div#left-panel {
 }
 
 #map-container {
-	height: calc(100% - (4.5vh + 44px));
+	height: calc(100% - (5vh + 44px));
 	width: 100%;
 	float: left;
 }
