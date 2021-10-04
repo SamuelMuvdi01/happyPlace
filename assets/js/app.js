@@ -57,9 +57,9 @@ const temp_map_url = (z,x,y) =>
 
 let getDataByCityId = function(id){
     let url = city_id_url(id)
-    console.log(url);
+    //console.log(url);
     $.get(url, function( wdata ){
-        console.log(wdata);
+        //console.log(wdata);
         populate(wdata);
     });
 }
@@ -73,13 +73,13 @@ let populate = function(data){
                 position: center,
                 title:data.name
             });
-            $(".active").removeClass("active");
+            $(".city-list-item.active").removeClass("active");
             $(this).addClass("active");
             // To add the marker to the map, call setMap();
             marker.setMap(map);
         });
     
-    $city = $("<div></div>").attr("id",data.name)
+    $city = $("<div></div>").attr("id",data.name)        
         .addClass("city-name")
         .text(data.name)
         .appendTo($list_obj);
@@ -90,16 +90,16 @@ let populate = function(data){
         .appendTo($list_obj);
 
     $desc = $("<div></div>").attr("id",data.id + "-desc")
-    .addClass("city-desc")
-    .text(data.weather[0].description)
-    .appendTo($list_obj);
+        .addClass("city-desc")
+        .text(data.weather[0].description)
+        .appendTo($list_obj);
 
     $list_obj.appendTo("#left-panel");
 }
 
 $.getJSON("assets/js/default_list.json", function(json) {
     for(let loc in json){
-        console.log(json[loc])
+        //console.log(json[loc])
         getDataByCityId(json[loc].id);
     }
 });
@@ -108,4 +108,57 @@ $("#heatMapToggle").click(function(){
     $(this).toggleClass("enabled");
     heatMapEnabled = !heatMapEnabled;
     navigator.geolocation.getCurrentPosition(success, error, options);
+});
+
+$("#sort-by").click(function(){ 
+    $(this).toggleClass("open");
+    if($(this).hasClass("open")) {  
+        $(".option").each(function(){        
+            $(this).show();
+        });
+    }
+    else{
+        $(".option").each(function(){        
+            $(this).hide();
+        });
+    }
+});
+
+let sortBy = function(typ){
+    console.log("sorting by: " + typ);
+    var result = $(".city-list-item").sort(function(a,b) {
+        let selector = "";
+        switch(typ){
+            case "temp":
+                selector = ".city-temp";
+                break;
+            case "name":
+                selector = ".city-name";
+                break;
+            case "weather":
+                selector = ".city-desc";
+                break;
+            default:
+                break;
+        }
+        var contentA = $(selector, a).text();
+        var contentB = $(selector, b).text();
+        console.log("comparing: " + contentA + " | " + contentB);
+        if (typ=="temp"){
+            contentA = parseInt(contentA);
+            contentB = parseInt(contentB);
+        }
+        
+        return (contentA < contentB) ? -1 : (contentA > contentB) ? 1 : 0;
+    });
+    console.log(result);
+    $("#left-panel").empty();
+    $(result).appendTo("#left-panel");
+}
+
+$(".option").click(function(){
+    $(".option.active").removeClass("active");
+    $(this).addClass("active");
+    let sortType = $(this).attr("sort");
+    sortBy(sortType);
 });

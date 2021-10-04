@@ -8,6 +8,8 @@
 html,
 body {
 	height: 100%;
+	font-family: "Comfortaa", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+		sans-serif;
 }
 
 header {
@@ -25,7 +27,7 @@ header {
 	);
 	border-bottom: 0.5vh solid #f7edf0;
 	position: relative;
-	z-index: 1;
+	z-index: 2;
 	display: flex;	
 }
 
@@ -46,14 +48,51 @@ div#heatMapToggle {
 	border-radius: 5px;
 	cursor: pointer;
 	position: absolute;
-	top: 30px;
-    left: 30px;
 	background: white;
 }
 
 div#heatMapToggle.enabled {
 	background: #0062b7;
     color: white;
+}
+
+
+div#sort-arrow {
+    float: right;
+	padding:10px;
+}
+
+
+div#sort-by.open {
+    box-shadow: 0px 0px 6px 2px #0000005e;
+}
+div#sort-by {
+    background: white;
+    border-radius: 5px;
+    float: right;
+	width: 130px;
+    position: relative;
+    z-index: 2;
+}
+.option.active {
+    display: flex !important;
+}
+
+.option {
+    padding: 10px;
+	display: none;
+}
+
+.option:hover {
+    background: #01a8e1;
+	color: white;
+}
+
+div#toolbox {
+    position: absolute;
+    top: 30%;
+    left: 2%;
+    width: 20%;
 }
 
 div#left-panel {
@@ -64,12 +103,10 @@ div#left-panel {
     overflow-y: auto;
     position: absolute;
     left: 2%;
-    top: 13%;
+    top: calc(5% + 44px + 2.5vh);
     border-radius: 5px;
 	height: calc(87% - (4.5vh + 44px));
 }
-
-
 
 #map-container {
 	height: calc(100% - (4.5vh + 44px));
