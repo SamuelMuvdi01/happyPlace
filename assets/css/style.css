@@ -25,7 +25,7 @@ header {
 		rgba(244, 238, 169, 1) 89%,
 		rgba(244, 244, 130, 1) 99%
 	);
-	border-bottom: 0.5vh solid #f7edf0;
+	border-bottom: 0.5vh solid white;
 	position: relative;
 	z-index: 2;
 	display: flex;	
@@ -35,7 +35,9 @@ header {
 	font-size: 2.5em;
 	font-family: "Comfortaa", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
 		sans-serif;
-	margin: 0 auto;
+	margin-left:auto;
+	margin-right: auto;
+	margin-top: .5vh;
 	display: flex;
 	font-weight: bold;
     color: white;
@@ -43,23 +45,36 @@ header {
 }
 
 div#heatMapToggle {
+	margin-top: .5vh;
+	margin-left: 1.5vw;
+
 	display: table;
-	padding: 10px;
-	border-radius: 5px;
+	padding: .6em;
+	border-radius: .3em;
 	cursor: pointer;
 	position: absolute;
 	background: white;
+
+	box-shadow: 0px 3px 6px 2px #0000005e;
 }
 
 div#heatMapToggle.enabled {
-	background: #0062b7;
+	background: rgba(0, 67, 125, 1);
     color: white;
 }
 
 
 div#sort-arrow {
     float: right;
-	padding:10px;
+	padding:.625em;
+	cursor: pointer;
+}
+
+#sort-arrow:hover {
+	background: rgba(0, 67, 125, 1);
+	border-bottom-right-radius: .3em;
+	border-top-right-radius: .3em;
+    color: white;
 }
 
 
@@ -67,12 +82,18 @@ div#sort-by.open {
     box-shadow: 0px 0px 6px 2px #0000005e;
 }
 div#sort-by {
+	margin-top:.5vh;
+	margin-left: 5.5vw;
+
     background: white;
-    border-radius: 5px;
+    border-radius: .3em;
     float: right;
-	width: 130px;
+	width: auto;
+	height: auto;
     position: relative;
-    z-index: 2;
+    z-index: 1;
+
+	box-shadow: 0px 3px 6px 2px #0000005e;
 }
 .option.active {
     display: flex !important;
@@ -84,28 +105,29 @@ div#sort-by {
 }
 
 .option:hover {
-    background: #01a8e1;
+    background: rgba(0, 67, 125, 1);
 	color: white;
+	cursor: pointer;
 }
 
 div#toolbox {
     position: absolute;
-    top: 30%;
-    left: 2%;
-    min-width: 600px;
-	width: 20%;
+    width: auto;
+	display: flex;
+	justify-content: left;
 }
 
 div#left-panel {
     float: left;
     background: white;
     z-index: 1;
+	position: absolute;
     overflow-y: auto;
-    position: absolute;
-    left: 2%;
-    top: calc(5% + 44px + 2.5vh);
+
+    margin-left: 2vw;
+    margin-top: 4vh;
     border-radius: 5px;
-	height: calc(87% - (4.5vh + 44px));
+	height: 81%;
 	min-width: 600px;
 	width: 20%;
 }
