@@ -63,6 +63,9 @@ const key = '431a4a6cc1ba0a9c9b9ac7071f861685'
 const city_id_url = (id) =>
     `https://api.openweathermap.org/data/2.5/weather?units=imperial&id=${id}&appid=${key}`;
 
+const forecast_city_id_url = (id) =>
+    `https://api.openweathermap.org/data/2.5/forecast?units=imperial&cnt=40&id=${id}&appid=${key}`;
+
 const temp_map_url = (z,x,y) => 
     `https://tile.openweathermap.org/map/temp_new/${z}/${x}/${y}.png?appid=${key}`;
 
@@ -86,23 +89,13 @@ let populate = function(data){
         .text(data.weather[0].description)
         .appendTo($list_obj);
 
+    $frcst = $("<div></div>").attr("id",data.id + "-forecast")
+        .addClass("city-forecast")
+        .hide()
+        .appendTo($list_obj);
+
     $list_obj.appendTo("#left-panel");
 }
-
-$("#left-panel").on('click','.city-list-item', function(){
-    data = weatherData[$(this).attr("id")];
-    console.log(data);
-    const center = new google.maps.LatLng(data.coord.lat, data.coord.lon);
-    map.panTo(center);
-    var marker = new google.maps.Marker({
-        position: center,
-        title:data.name
-    });
-    $(".city-list-item.active").removeClass("active");
-    $(this).addClass("active");
-    // To add the marker to the map, call setMap();
-    marker.setMap(map);
-})
 
 let getDataByCityId = function(id){
     let url = city_id_url(id)
@@ -113,19 +106,60 @@ let getDataByCityId = function(id){
     });
 }
 
-$("#sort-arrow").click(function(){ 
-    $(this).toggleClass("open");
-    if($(this).hasClass("open")) {  
-        $(".option").each(function(){        
-            $(this).show();
-        });
-    }
-    else{
-        $(".option").each(function(){        
-            $(this).hide();
-        });
-    }
-});
+let getForecastByCityId = function(id){
+    let url = forecast_city_id_url(id)
+    $(".city-forecast").each(function(){
+        $(this).empty().hide();
+    });
+    //console.log(url);
+    $.get(url, function( wdata ){
+        console.log(wdata);
+        let noon = 0;
+        for(let x in wdata.list){
+            let thisData = wdata.list[x];
+            if(thisData.dt_txt.includes("12:00:00")){
+                noon = parseInt(x);
+                break;
+            }
+        }
+        console.log("Noon index: " + noon)
+        for (let y = noon; y < 40; y += 8){
+            thisData = wdata.list[y];
+            console.log("Index: " + y);
+            console.log(thisData.dt_txt);
+            console.log(Math.ceil(thisData.main.temp));
+            console.log(thisData.weather[0].main);            
+            console.log();
+            let baseID = id + "-fd-" + (y).toString();
+            $day = $("<div></div>")
+                .addClass("forecast-item")
+                .attr("id", baseID);                
+            
+            $temp = $("<div></div>")
+                .attr("id", baseID + "-temp")
+                .addClass("fd-temp")
+                .text(Math.ceil(thisData.main.temp))
+                .appendTo($day);
+
+            $weather = $("<div></div>")
+                .attr("id", baseID + "-weather")
+                .addClass("fd-weather")
+                .text(thisData.weather[0].main)
+                .appendTo($day);
+
+            $dayName = $("<div></div>")
+                .attr("id", baseID + "-day")
+                .addClass("fd-day")
+                .text(new Date(thisData.dt * 1000).toLocaleString('en-us', {weekday:'long'}))
+                .appendTo($day);
+
+            $day.appendTo("#" + id + "-forecast");
+            $("#" + id + "-forecast").show();
+        }
+        
+    });
+}
+
 
 let sortBy = function(typ,dir){
     sortDirection = !sortDirection;
@@ -162,19 +196,49 @@ let sortBy = function(typ,dir){
     $(result).appendTo("#left-panel");
 }
 
-$(".option").click(function(){
-    $(".option.active").removeClass("active");
-    $(this).addClass("active");
-    let sortType = $(this).attr("sort");
-    sortBy(sortType,sortDirection);
-});
-
 $.getJSON("assets/js/default_list.json", function(json) {
     for(let loc in json){
         //console.log(json[loc])
         getDataByCityId(json[loc].id);
     }
     sortBy("temp",sortDirection);
+});
+
+$("#left-panel").on('click','.city-list-item', function(){
+    data = weatherData[$(this).attr("id")];
+    //console.log(data);
+    const center = new google.maps.LatLng(data.coord.lat, data.coord.lon);
+    map.panTo(center);
+    var marker = new google.maps.Marker({
+        position: center,
+        title:data.name
+    });
+    $(".city-list-item.active").removeClass("active");
+    $(this).addClass("active");
+    // To add the marker to the map, call setMap();
+    marker.setMap(map);
+    getForecastByCityId(data.id);
+})
+
+$("#sort-arrow").click(function(){ 
+    $(this).toggleClass("open");
+    if($(this).hasClass("open")) {  
+        $(".option").each(function(){        
+            $(this).show();
+        });
+    }
+    else{
+        $(".option").each(function(){        
+            $(this).hide();
+        });
+    }
+});
+
+$(".option").click(function(){
+    $(".option.active").removeClass("active");
+    $(this).addClass("active");
+    let sortType = $(this).attr("sort");
+    sortBy(sortType,sortDirection);
 });
 
 $("#heatMapToggle").click(function(){
