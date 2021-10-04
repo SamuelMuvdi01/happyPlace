@@ -1,4 +1,3 @@
-
 //map initialization script
 let map;
 
@@ -159,7 +158,6 @@ let getForecastByCityId = function(id){
         
     });
 }
-
 
 let sortBy = function(typ,dir){
     sortDirection = !sortDirection;
