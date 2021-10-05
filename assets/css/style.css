@@ -1,193 +1,176 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
-
 * {
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 html,
 body {
-	height: 100%;
-	font-family: "Comfortaa", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-		sans-serif;
+    height: 100%;
+    font-family: "Comfortaa", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 header {
-	padding-top: 2vh;
-	padding-bottom: 2vh;
-	width: auto;
-	height: auto;
-	background: rgb(0, 167, 225);
-	background: linear-gradient(
-		45deg,
-		rgba(0, 167, 225, 1) 0%,
-		rgba(247, 237, 240, 1) 80%,
-		rgba(244, 238, 169, 1) 89%,
-		rgba(244, 244, 130, 1) 99%
-	);
-	border-bottom: 0.5vh solid white;
-	position: relative;
-	z-index: 2;
-	display: flex;	
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    width: auto;
+    height: auto;
+    background: rgb(0, 167, 225);
+    background: linear-gradient( 45deg, rgba(0, 167, 225, 1) 0%, rgba(247, 237, 240, 1) 80%, rgba(244, 238, 169, 1) 89%, rgba(244, 244, 130, 1) 99%);
+    border-bottom: 0.5vh solid white;
+    position: relative;
+    z-index: 2;
+    display: flex;
 }
 
 .header-text {
-	font-size: 2.5em;
-	font-family: "Comfortaa", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-		sans-serif;
-	margin-left:auto;
-	margin-right: auto;
-	margin-top: .5vh;
-	display: flex;
-	font-weight: bold;
+    font-size: 2.5em;
+    font-family: "Comfortaa", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: .5vh;
+    display: flex;
+    font-weight: bold;
     color: white;
-	text-shadow: 0px 0px 9px #00000057;
+    text-shadow: 0px 0px 9px #00000057;
 }
 
 div#heatMapToggle {
-	margin-top: .5vh;
-	margin-left: 1.5vw;
-
-	display: table;
-	padding: .625em;
-	border-radius: .3em;
-	cursor: pointer;
-	position: absolute;
-	background: white;
-
-	box-shadow: 0px 3px 6px 2px #0000005e;
+    margin-top: .5vh;
+    margin-left: 1.5vw;
+    display: table;
+    padding: .625em;
+    border-radius: .3em;
+    cursor: pointer;
+    position: absolute;
+    background: white;
+    box-shadow: 0px 3px 6px 2px #0000005e;
 }
 
 div#heatMapToggle.enabled {
-	background: rgba(0, 67, 125, 1);
+    background: rgba(0, 67, 125, 1);
     color: white;
 }
-
 
 div#sort-arrow {
     float: right;
-	padding: .466em;
-
-	border-bottom-right-radius: .3em;
-	border-top-right-radius: .3em;
-	border: .15em solid rgb(230, 230, 240);
-
-	cursor: pointer;
+    padding: .625em;
+    border-bottom-right-radius: .3em;
+    border-top-right-radius: .3em;
+    cursor: pointer;
 }
 
 #sort-arrow:hover {
-	background: rgba(0, 67, 125, 1);
+    background: rgba(0, 67, 125, 1);
     color: white;
 }
-
 
 div#sort-by.open {
     box-shadow: 0px 0px 6px 2px #0000005e;
 }
-div#sort-by {
-	margin-top:.5vh;
-	margin-left: 5.5vw;
 
+div#sort-by {
+    margin-top: .5vh;
+    margin-left: 5.5vw;
     background: white;
     border-radius: .3em;
     float: right;
-	width: 8.3vw;
-	height: auto;
+    width: 8.3vw;
+    height: auto;
     position: relative;
     z-index: 1;
-
-	box-shadow: 0px 3px 6px 2px #0000005e;
+    box-shadow: 0px 3px 6px 2px #0000005e;
 }
+
 .option.active {
     display: flex !important;
 }
 
 .option {
     padding: 10px;
-	display: none;
+    display: none;
 }
 
 .option:hover {
     background: rgba(0, 67, 125, 1);
-	border-radius: .3em;
-	color: white;
-	cursor: pointer;
+    border-radius: .3em;
+    color: white;
+    cursor: pointer;
 }
 
 div#toolbox {
     position: absolute;
     width: auto;
-	display: flex;
-	justify-content: left;
+    display: flex;
+    justify-content: left;
 }
 
 div#left-panel {
     float: left;
     background: white;
     z-index: 1;
-	position: absolute;
+    position: absolute;
     overflow-y: auto;
     margin-left: 2vw;
     margin-top: 4vh;
     border-radius: 5px;
-	height: 81%;
-	min-width: 600px;
-	width: 20%;
+    height: 81%;
+    min-width: 600px;
+    width: 20%;
 }
 
 #map-container {
-	height: calc(100% - (5vh + 44px));
-	width: 100%;
-	float: left;
+    height: calc(100% - (5vh + 44px));
+    width: 100%;
+    float: left;
 }
 
 #map {
-	height: 100%;
-	width: 100%;
+    height: 100%;
+    width: 100%;
 }
 
 .city-list-item {
-	display: table;
-	padding: 20px;
-	cursor: pointer;
-	width: calc(100% - 40px);
-	border-bottom: 1px solid #00000026;
-	font-family: "Comfortaa", cursive;
+    display: table;
+    padding: 20px;
+    cursor: pointer;
+    width: calc(100% - 40px);
+    border-bottom: 1px solid #00000026;
+    font-family: "Comfortaa", cursive;
 }
 
-.city-list-item:hover{
-	background:#477b8d;
-	color:white;
+.city-list-item:hover {
+    background: #477b8d;
+    color: white;
 }
 
 .city-list-item.active {
-	background-color: #01a8e1;
-	color: white;
+    background-color: #01a8e1;
+    color: white;
 }
 
 .city-name {
-	font-size: 30px;
-	float: left;
+    font-size: 30px;
+    float: left;
 }
 
 .city-temp {
-	float: right;
-	position: relative;
-	font-size: 30px;
-	right: 10px;
-	top: 10px;
-	font-weight: bold;
+    float: right;
+    position: relative;
+    font-size: 30px;
+    right: 10px;
+    top: 10px;
+    font-weight: bold;
 }
 
 .city-desc {
-	width: 100%;
-	display: table;
-	padding-top: 10px;
+    width: 100%;
+    display: table;
+    padding-top: 10px;
 }
 
-
-.box-shadow{
-	box-shadow: 0px 0px 6px 4px #00000040;
+.box-shadow {
+    box-shadow: 0px 0px 6px 4px #00000040;
 }
 
 .forecast-item {
@@ -205,7 +188,7 @@ div#left-panel {
     border: 1px solid transparent;
     border-radius: 5px;
     width: 100%;
-	margin-top: 15px;
+    margin-top: 15px;
 }
 
 .forecast-item:last-child {
@@ -217,65 +200,76 @@ div#left-panel {
     padding-top: 5px;
 }
 
+
 /* Mobile css */
+
 @media screen and (max-width: 900px) {
-	#left-panel {
-		position: relative !important;
-		left: 0px !important;
-		top: 0px !important;
-		height: calc(100% - 65px) !important;
-		width: 30% !important;
-		min-width: 300px !important;
-	}
-	.city-name,
-	.city-temp {
-		font-size: 20px;
-	}
-	#map-container {
-		width: 70% !important;
-		height: calc(100% - 65px);
-	}
-	#header {
-		height: 30px !important;
-	}
-	#header-text {
-		font-size: 30px !important;
-	}
-	div#heatMapToggle {
-		top:10px;
-		left:10px;
-	}
-	.city-forecast{
-		width:100% !important;
-	}
-	.forecast-item{
-		width: auto;
-		float:none ;
-		border-right: 0px;
-		border-top:1px solid rgba(0, 0, 0, 0.521)
-	}
-	.forecast-item:first-child{
-		border: 0px;
-	}
+    #left-panel {
+        position: relative !important;
+        left: 0px !important;
+        top: 0px !important;
+        height: calc(100% - 65px) !important;
+        width: 30% !important;
+        min-width: 300px !important;
+    }
+    .city-name,
+    .city-temp {
+        font-size: 20px;
+    }
+    #map-container {
+        width: 70% !important;
+        height: calc(100% - 65px);
+    }
+    #header {
+        height: 30px !important;
+    }
+    #header-text {
+        font-size: 30px !important;
+    }
+    div#heatMapToggle {
+        top: 10px;
+        left: 10px;
+    }
+    .city-forecast {
+        width: 100% !important;
+    }
+    .forecast-item {
+        width: auto;
+        float: none;
+        border-right: 0px;
+        border-top: 1px solid rgba(0, 0, 0, 0.521)
+    }
+    .forecast-item:first-child {
+        border: 0px;
+    }
 }
+
+
 /* Scroll Bar css */
+
 ::-webkit-scrollbar {
-	width: 10px;
+    width: 10px;
 }
+
 
 /* Track */
+
 ::-webkit-scrollbar-track {
-	box-shadow: inset 0 0 5px rgba(128, 128, 128, 0);
-	border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(128, 128, 128, 0);
+    border-radius: 10px;
 }
+
 
 /* Handle */
+
 ::-webkit-scrollbar-thumb {
-	background: rgb(209, 209, 209);
-	border-radius: 10px;
+    background: rgb(209, 209, 209);
+    border-radius: 10px;
 }
 
+
 /* Handle on hover */
+
 ::-webkit-scrollbar-thumb:hover {
-	background: #004f8f;
+    background: #004f8f;
 }
