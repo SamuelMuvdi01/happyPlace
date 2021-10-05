@@ -12,15 +12,19 @@ var options = {
     timeout: 5000,
     maximumAge: 0
 };
-
+let global_lat = -34.397;
+let global_lng = 150.644;
+let global_zoom = 8;
 function success(pos) {
     var crd = pos.coords;
+    global_lat = crd.latitude;
+    global_lng = crd.longitude;
     initMap(crd.latitude,crd.longitude);    
 }
 
 function error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
-    initMap(-34.397,150.644)
+    initMap(global_lat,global_lng);
 }
 
 navigator.geolocation.getCurrentPosition(success, error, options);
@@ -245,8 +249,5 @@ $(".option").click(function(){
 $("#heatMapToggle").click(function(){
     $(this).toggleClass("enabled");
     heatMapEnabled = !heatMapEnabled;
-    navigator.geolocation.getCurrentPosition(success, error, options);
+    initMap(global_lat,global_lng);
 });
-
-
-
