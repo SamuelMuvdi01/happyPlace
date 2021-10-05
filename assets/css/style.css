@@ -36,8 +36,7 @@ header {
 }
 
 div#heatMapToggle {
-    margin-top: .5vh;
-    margin-left: 1.5vw;
+    left: 1.5vw;
     display: table;
     padding: .625em;
     border-radius: .3em;
@@ -70,16 +69,21 @@ div#sort-by.open {
 }
 
 div#sort-by {
-    margin-top: .5vh;
     margin-left: 5.5vw;
     background: white;
     border-radius: .3em;
     float: right;
     width: 8.3vw;
+    min-width: 95px;
     height: auto;
     position: relative;
     z-index: 1;
     box-shadow: 0px 3px 6px 2px #0000005e;
+}
+
+
+div#toolbox {
+    top: 2.5vh;
 }
 
 .option.active {
@@ -111,8 +115,8 @@ div#left-panel {
     z-index: 1;
     position: absolute;
     overflow-y: auto;
-    margin-left: 2vw;
-    margin-top: 4vh;
+    left: 2vw;
+    top: 4vh;
     border-radius: 5px;
     height: 81%;
     min-width: 600px;
@@ -185,7 +189,6 @@ div#left-panel {
     background: white;
     display: table;
     color: black;
-    border: 1px solid transparent;
     border-radius: 5px;
     width: 100%;
     margin-top: 15px;
@@ -204,12 +207,20 @@ div#left-panel {
 /* Mobile css */
 
 @media screen and (max-width: 900px) {
+    div#toolbox {
+        width: 100% !important;
+        display: table;
+    }
+    
+    div#sort-by {
+        right: 10px;
+    }
     #left-panel {
-        position: relative !important;
         left: 0px !important;
-        top: 0px !important;
-        height: calc(100% - 65px) !important;
-        width: 30% !important;
+        top: unset !important;
+        bottom: 0px;
+        height: calc((100% - 4.5vh - 2.5em) / 2) !important;
+        width: 100% !important;
         min-width: 300px !important;
     }
     .city-name,
@@ -217,8 +228,8 @@ div#left-panel {
         font-size: 20px;
     }
     #map-container {
-        width: 70% !important;
-        height: calc(100% - 65px);
+        width: 100% !important;
+        height: calc((100% - 4.5vh - 2.5em) / 2) !important;
     }
     #header {
         height: 30px !important;
@@ -227,13 +238,12 @@ div#left-panel {
         font-size: 30px !important;
     }
     div#heatMapToggle {
-        top: 10px;
         left: 10px;
     }
     .city-forecast {
         width: 100% !important;
     }
-    .forecast-item {
+    /*.forecast-item {
         width: auto;
         float: none;
         border-right: 0px;
@@ -241,7 +251,7 @@ div#left-panel {
     }
     .forecast-item:first-child {
         border: 0px;
-    }
+    }*/
 }
 
 
