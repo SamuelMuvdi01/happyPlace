@@ -211,6 +211,10 @@ $("#left-panel").on('click','.city-list-item', function(){
     //console.log(data);
     const center = new google.maps.LatLng(data.coord.lat, data.coord.lon);
     map.panTo(center);
+
+    global_lat = data.coord.lat;
+    global_lng = data.coord.lon;
+
     var marker = new google.maps.Marker({
         position: center,
         title:data.name
