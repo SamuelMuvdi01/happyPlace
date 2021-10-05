@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>HappyPlace: For Travelers</title>
-	<link rel="stylesheet" href="assets/css/style.css" />
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-</head>
-<body>
-	<header class="box-shadow">
-		<div id="toolbox"> 
-			<div id="heatMapToggle">
-				<i class="fas fa-temperature-high"></i>
-			</div>
-			<div id="sort-by">
-				<div id="sort-arrow">
-					<i class="fas fa-angle-down"></i>
-				</div>
-				<div class="option active" sort="temp">
-					Temp
-				</div>
-				<div class="option" sort="name">
-					Name
-				</div>
-				<div class="option" sort="weather">
-					Weather
-				</div>				
-			</div>
-		</div>
-		<p class="header-text">HappyPlace</p>
-	</header>
 
-	<div id="left-panel" class="box-shadow"></div>
-	<div id="map-container">
-		<div id="map"></div>
-	</div>
-	<script src="assets/js/app.js" async defer></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGh1sF70g3S05T_LJ29sLPFuOLbU0a8tM&callback=initMap&v=weekly&channel=2" async></script>
-	<link href="assets/font-awesome/css/all.css" rel="stylesheet">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HappyPlace: For Travelers</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="box-shadow">
+        <div id="toolbox">
+            <div id="heatMapToggle">
+                <i class="fas fa-temperature-high"></i>
+            </div>
+            <div id="sort-by">
+                <div id="sort-arrow">
+                    <i class="fas fa-angle-down"></i>
+                </div>
+                <div class="option active" sort="temp">
+                    Temp
+                </div>
+                <div class="option" sort="name">
+                    Name
+                </div>
+                <div class="option" sort="weather">
+                    Weather
+                </div>
+            </div>
+        </div>
+        <p class="header-text"><span class="light-blue">Happy</span><span class="light-yellow">Place</span></p>
+    </header>
+
+    <div id="left-panel" class="box-shadow"></div>
+    <div id="map-container">
+        <div id="map"></div>
+    </div>
+    <script src="assets/js/app.js" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGh1sF70g3S05T_LJ29sLPFuOLbU0a8tM&callback=initMap&v=weekly&channel=2" async></script>
+    <link href="assets/font-awesome/css/all.css" rel="stylesheet">
 </body>
+
 </html>
