@@ -28,7 +28,7 @@ header {
     font-size: 2.5em;
     margin-left: auto;
     margin-right: auto;
-    margin-top: .5vh;
+    height: 5.5vh;
     display: flex;
     font-weight: bold;
 }
@@ -125,13 +125,14 @@ div#left-panel {
     overflow-y: auto;
     left: 2vw;
     border-radius: 5px;
-    height: calc(100vh - 4.5vh - 2.5em);
+    height: 80vh;
+    top: 15vh;
     min-width: 600px;
     width: 20%;
 }
 
 #map-container {
-    height: calc(100% - (5vh + 44px));
+    height: 90vh;
     width: 100%;
     float: left;
 }
