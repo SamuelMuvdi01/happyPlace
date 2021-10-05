@@ -125,7 +125,7 @@ div#left-panel {
     overflow-y: auto;
     left: 2vw;
     border-radius: 5px;
-    height: 81%;
+    height: calc(100vh - 4.5vh - 2.5em);
     min-width: 600px;
     width: 20%;
 }
