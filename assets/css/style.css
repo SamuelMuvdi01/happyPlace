@@ -2,12 +2,12 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: "Comfortaa", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 html,
 body {
     height: 100%;
-    font-family: "Comfortaa", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 header {
@@ -17,27 +17,35 @@ header {
     height: auto;
     background: rgb(0, 167, 225);
     background: linear-gradient( 45deg, rgba(0, 167, 225, 1) 0%, rgba(247, 237, 240, 1) 80%, rgba(244, 238, 169, 1) 89%, rgba(244, 244, 130, 1) 99%);
-    border-bottom: 0.5vh solid white;
+    border-bottom: 0.5vh solid #efefef;
     position: relative;
     z-index: 2;
     display: flex;
 }
 
 .header-text {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 2.5em;
-    font-family: "Comfortaa", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     margin-left: auto;
     margin-right: auto;
     margin-top: .5vh;
     display: flex;
     font-weight: bold;
-    color: white;
-    text-shadow: 0px 0px 9px #00000057;
+}
+
+.light-yellow {
+    color: #ffffbb;
+    text-shadow: 0px 0px 9px rgba(0, 0, 0, 0.4)
+}
+
+.light-blue {
+    color: #d2f4ff;
+    text-shadow: 0px 0px 9px rgba(0, 0, 0, .4);
 }
 
 div#heatMapToggle {
-    margin-top: .5vh;
-    margin-left: 1.5vw;
+    top: .5vh;
+    left: 2vw;
     display: table;
     padding: .625em;
     border-radius: .3em;
@@ -71,7 +79,7 @@ div#sort-by.open {
 
 div#sort-by {
     margin-top: .5vh;
-    margin-left: 5.5vw;
+    margin-left: 6.5vw;
     background: white;
     border-radius: .3em;
     float: right;
@@ -111,7 +119,7 @@ div#left-panel {
     z-index: 1;
     position: absolute;
     overflow-y: auto;
-    margin-left: 2vw;
+    left: 2vw;
     margin-top: 4vh;
     border-radius: 5px;
     height: 81%;
