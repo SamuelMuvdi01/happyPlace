@@ -43,7 +43,7 @@ header {
     text-shadow: 0px 0px 9px rgba(0, 0, 0, .4);
 }
 
-div#heatMapToggle {
+#heatMapToggle {
     left: 2vw;
     display: table;
     padding: .625em;
@@ -54,12 +54,12 @@ div#heatMapToggle {
     box-shadow: 0px 3px 6px 2px #0000005e;
 }
 
-div#heatMapToggle.enabled {
+#heatMapToggle.enabled {
     background: rgba(0, 67, 125, 1);
     color: white;
 }
 
-div#sort-arrow {
+#sort-arrow {
     float: right;
     padding: .625em;
     border-bottom-right-radius: .3em;
@@ -72,11 +72,11 @@ div#sort-arrow {
     color: white;
 }
 
-div#sort-by.open {
+#sort-by.open {
     box-shadow: 0px 0px 6px 2px #0000005e;
 }
 
-div#sort-by {
+#sort-by {
     margin-left: 6.5vw;
     background: white;
     border-radius: .3em;
@@ -89,8 +89,7 @@ div#sort-by {
     box-shadow: 0px 3px 6px 2px #0000005e;
 }
 
-
-div#toolbox {
+#toolbox {
     top: 2.5vh;
 }
 
@@ -110,14 +109,14 @@ div#toolbox {
     cursor: pointer;
 }
 
-div#toolbox {
+#toolbox {
     position: absolute;
     width: auto;
     display: flex;
     justify-content: left;
 }
 
-div#left-panel {
+#left-panel {
     float: left;
     background: white;
     z-index: 1;
@@ -219,7 +218,6 @@ div#left-panel {
         width: 100% !important;
         display: table;
     }
-    
     div#sort-by {
         right: 10px;
     }
