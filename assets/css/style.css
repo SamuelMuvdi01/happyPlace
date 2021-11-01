@@ -9,7 +9,7 @@
 html, body {
     /* Why is this needed? */
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
     position: fixed;
     background-color: rgba(0, 167, 225, 1);
