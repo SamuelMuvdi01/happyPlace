@@ -1,0 +1,23 @@
+{
+    "name": "HappyPlace: For Travelers",
+    "short_name": "HappyPlace",
+    "icons": [
+        {
+            "src": "./assets/components/hp-icon192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "./assets/components/hp-icon512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "start_url": "./index.html",
+    "background_color": "#d2f4ff",
+    "display": "fullscreen",
+    "scope": "./",
+    "theme_color": "#ffffbb",
+    "orientation": "portrait",
+    "description": "Information for undecided travelers."
+}
