@@ -14,10 +14,10 @@
         }
     ],
     "start_url": "./index.html",
-    "background_color": "#d2f4ff",
+    "background_color": "#ffffbb",
     "display": "fullscreen",
     "scope": "./",
-    "theme_color": "#ffffbb",
+    "theme_color": "#d2f4ff",
     "orientation": "portrait",
     "description": "Information for undecided travelers."
 }
