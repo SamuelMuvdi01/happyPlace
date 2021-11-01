@@ -170,6 +170,26 @@
         }
     },
     {
+        "id": 5419384,
+        "name": "Denver",
+        "state": "CO",
+        "country": "US",
+        "coord": {
+            "lon": -104.984703,
+            "lat": 39.739151
+        }
+    },
+    {
+        "id": 4684888,
+        "name": "Dallas",
+        "state": "TX",
+        "country": "US",
+        "coord": {
+            "lon": -96.806671,
+            "lat": 32.783058
+        }
+    },
+    {
         "id": 3489854,
         "name": "Kingston",
         "state": "",

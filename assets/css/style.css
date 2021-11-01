@@ -6,7 +6,8 @@
     padding: 0;
 }
 
-html {
+html,
+body {
     /* Why is this needed? */
     height: 100%;
 }
@@ -88,7 +89,7 @@ header {
 #sort-by {
     float: right;
     position: absolute;
-    left: 6.5vw;
+    margin-left: 6.5vw;
 
     width: 8.3vw;
     min-width: 95px;
@@ -225,12 +226,13 @@ header {
 /* Mobile css */
 
 @media screen and (max-width: 900px) {
-    div#toolbox {
+    #toolbox {
         width: 100% !important;
         display: table;
     }
-    div#sort-by {
+    #sort-by {
         right: 10px;
+        margin:0px;
     }
     #left-panel {
         left: 0px !important;
@@ -254,7 +256,7 @@ header {
     #header-text {
         font-size: 30px !important;
     }
-    div#heatMapToggle {
+    #heatMapToggle {
         left: 10px;
     }
     .city-forecast {
