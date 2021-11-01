@@ -153,7 +153,7 @@ let getForecastByCityId = function (id) {
             $dayName = $("<div></div>")
                 .attr("id", baseID + "-day")
                 .addClass("fd-day")
-                .text(new Date(thisData.dt * 1000).toLocaleString('en-us', { weekday: 'long' }))
+                .text(new Date(thisData.dt * 1000).toLocaleString('en-us', { weekday: 'short' }))
                 .appendTo($day);
 
             $day.appendTo("#" + id + "-forecast");
@@ -257,3 +257,16 @@ $("#heatMapToggle").click(function () {
     heatMapEnabled = !heatMapEnabled;
     initMap(global_lat, global_lng);
 });
+
+function registerServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js')
+            .then(function (registration) {
+                // Registration was successful
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }).catch(function (err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+            });
+    }
+}

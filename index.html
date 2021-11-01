@@ -4,13 +4,19 @@
 <head>
     <title>HappyPlace: For Travelers</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no" />
+
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <link rel="stylesheet" href="assets/css/style.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <link rel="manifest" href="./manifest.webmanifest" crossorigin="use-credentials">
+    <link rel="icon" href="./assets/components/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/components/apple-touch-icon.png">
 </head>
 
-<body>
+<body onload="registerServiceWorker()">
     <header class="box-shadow flex-center">
         <h1 class="header-text">
             <span class="light-blue text-shadow">Happy</span><span class="light-yellow text-shadow">Place</span>
