@@ -10,6 +10,8 @@ html, body {
     /* Why is this needed? */
     height: 100%;
     overflow: hidden;
+    position: fixed;
+    background-color: rgba(0, 167, 225, 1);
 }
 
 .flex-center {
