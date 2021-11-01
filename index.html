@@ -11,29 +11,29 @@
 </head>
 
 <body>
-    <header class="box-shadow">
-        <section id="toolbox">
-
-            <div class="icon box-shadow" id="heatMapToggle">
-                <div class="fas fa-temperature-high"></div>
-            </div>
-
-            <div class="box-shadow" id="sort-by">
-                <div class="icon" id="sort-arrow">
-                    <div class="fas fa-angle-down"></div>
-                </div>
-
-                <p class="option active" sort="temp">Temp</p>
-                <p class="option" sort="name">Name</p>
-                <p class="option" sort="weather">Weather</p>
-            </div>
-
-        </section>
-
-        <p class="header-text">
+    <header class="box-shadow flex-center">
+        <h1 class="header-text">
             <span class="light-blue text-shadow">Happy</span><span class="light-yellow text-shadow">Place</span>
-        </p>
+        </h1>
     </header>
+
+    <section class="flex-center" id="toolbox">
+
+        <div class="icon box-shadow" id="heatMapToggle">
+            <div class="fas fa-temperature-high"></div>
+        </div>
+
+        <div class="box-shadow" id="sort-by">
+            <div class="icon" id="sort-arrow">
+                <div class="fas fa-angle-right"></div>
+            </div>
+
+            <p class="option active" sort="temp">Temp</p>
+            <p class="option" sort="name">Name</p>
+            <p class="option" sort="weather">Weather</p>
+        </div>
+
+    </section>
 
     <div id="left-panel" class="box-shadow"></div>
 

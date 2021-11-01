@@ -19,17 +19,17 @@ function success(pos) {
     var crd = pos.coords;
     global_lat = crd.latitude;
     global_lng = crd.longitude;
-    initMap(crd.latitude,crd.longitude);    
+    initMap(crd.latitude, crd.longitude);
 }
 
 function error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
-    initMap(global_lat,global_lng);
+    initMap(global_lat, global_lng);
 }
 
 navigator.geolocation.getCurrentPosition(success, error, options);
 
-function initMap(lat,long) {    
+function initMap(lat, long) {
     map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: lat, lng: long },
         zoom: 8,
@@ -41,21 +41,21 @@ function initMap(lat,long) {
         overviewMapControl: true,
         rotateControl: true,
         fullscreenControl: false
-    });   
-    if(heatMapEnabled){
+    });
+    if (heatMapEnabled) {
         var heatMap = new google.maps.ImageMapType({
-        getTileUrl: function(coord, zoom) {
-            return "https://tile.openweathermap.org/map/temp_new/" + 
+            getTileUrl: function (coord, zoom) {
+                return "https://tile.openweathermap.org/map/temp_new/" +
                     zoom + "/" + coord.x + "/" + coord.y + ".png?appid=" + key;
-        },
-        tileSize: new google.maps.Size(256, 256),
-        maxZoom: 9,
-        minZoom: 0,
-        name: 'heatMap'
+            },
+            tileSize: new google.maps.Size(256, 256),
+            maxZoom: 9,
+            minZoom: 0,
+            name: 'heatMap'
         });
 
         map.overlayMapTypes.insertAt(0, heatMap);
-    }   
+    }
 }
 
 //key for  open weather map
@@ -69,30 +69,30 @@ const city_id_url = (id) =>
 const forecast_city_id_url = (id) =>
     `https://api.openweathermap.org/data/2.5/forecast?units=imperial&cnt=40&id=${id}&appid=${key}`;
 
-const temp_map_url = (z,x,y) => 
+const temp_map_url = (z, x, y) =>
     `https://tile.openweathermap.org/map/temp_new/${z}/${x}/${y}.png?appid=${key}`;
 
-let populate = function(data){
+let populate = function (data) {
     weatherData[data.id] = data;
-    $list_obj = $("<div></div>").attr("id",data.id)
+    $list_obj = $("<div></div>").attr("id", data.id)
         .addClass("city-list-item");
-    
-    $city = $("<div></div>").attr("id",data.id + "-name")        
+
+    $city = $("<div></div>").attr("id", data.id + "-name")
         .addClass("city-name")
         .text(data.name)
         .appendTo($list_obj);
 
-    $temp = $("<div></div>").attr("id",data.id + "-temp")
+    $temp = $("<div></div>").attr("id", data.id + "-temp")
         .addClass("city-temp")
-        .html(Math.ceil(data.main.temp)+"&#176;")
+        .html(Math.ceil(data.main.temp) + "&#176;")
         .appendTo($list_obj);
 
-    $desc = $("<div></div>").attr("id",data.id + "-desc")
+    $desc = $("<div></div>").attr("id", data.id + "-desc")
         .addClass("city-desc")
         .text(data.weather[0].description)
         .appendTo($list_obj);
 
-    $frcst = $("<div></div>").attr("id",data.id + "-forecast")
+    $frcst = $("<div></div>").attr("id", data.id + "-forecast")
         .addClass("city-forecast")
         .hide()
         .appendTo($list_obj);
@@ -100,44 +100,44 @@ let populate = function(data){
     $list_obj.appendTo("#left-panel");
 }
 
-let getDataByCityId = function(id){
+let getDataByCityId = function (id) {
     let url = city_id_url(id)
     //console.log(url);
-    $.get(url, function( wdata ){
+    $.get(url, function (wdata) {
         //console.log(wdata);
         populate(wdata);
     });
 }
 
-let getForecastByCityId = function(id){
+let getForecastByCityId = function (id) {
     let url = forecast_city_id_url(id)
-    $(".city-forecast").each(function(){
+    $(".city-forecast").each(function () {
         $(this).empty().hide();
     });
     //console.log(url);
-    $.get(url, function( wdata ){
+    $.get(url, function (wdata) {
         console.log(wdata);
         let noon = 0;
-        for(let x in wdata.list){
+        for (let x in wdata.list) {
             let thisData = wdata.list[x];
-            if(thisData.dt_txt.includes("12:00:00")){
+            if (thisData.dt_txt.includes("12:00:00")) {
                 noon = parseInt(x);
                 break;
             }
         }
         console.log("Noon index: " + noon)
-        for (let y = noon; y < 40; y += 8){
+        for (let y = noon; y < 40; y += 8) {
             thisData = wdata.list[y];
             console.log("Index: " + y);
             console.log(thisData.dt_txt);
             console.log(Math.ceil(thisData.main.temp));
-            console.log(thisData.weather[0].main);            
+            console.log(thisData.weather[0].main);
             console.log();
             let baseID = id + "-fd-" + (y).toString();
             $day = $("<div></div>")
                 .addClass("forecast-item")
-                .attr("id", baseID);                
-            
+                .attr("id", baseID);
+
             $temp = $("<div></div>")
                 .attr("id", baseID + "-temp")
                 .addClass("fd-temp")
@@ -153,22 +153,22 @@ let getForecastByCityId = function(id){
             $dayName = $("<div></div>")
                 .attr("id", baseID + "-day")
                 .addClass("fd-day")
-                .text(new Date(thisData.dt * 1000).toLocaleString('en-us', {weekday:'long'}))
+                .text(new Date(thisData.dt * 1000).toLocaleString('en-us', { weekday: 'long' }))
                 .appendTo($day);
 
             $day.appendTo("#" + id + "-forecast");
             $("#" + id + "-forecast").show();
         }
-        
+
     });
 }
 
-let sortBy = function(typ,dir){
+let sortBy = function (typ, dir) {
     sortDirection = !sortDirection;
     console.log("sorting by: " + typ);
-    var result = $(".city-list-item").sort(function(a,b) {
+    var result = $(".city-list-item").sort(function (a, b) {
         let selector = "";
-        switch(typ){
+        switch (typ) {
             case "temp":
                 selector = ".city-temp";
                 break;
@@ -184,11 +184,11 @@ let sortBy = function(typ,dir){
         var contentA = $(selector, a).text();
         var contentB = $(selector, b).text();
         console.log("comparing: " + contentA + " | " + contentB);
-        if (typ=="temp"){
+        if (typ == "temp") {
             contentA = parseInt(contentA);
             contentB = parseInt(contentB);
         }
-        if(dir)
+        if (dir)
             return (contentA < contentB) ? 1 : (contentA > contentB) ? -1 : 0;
         else
             return (contentA < contentB) ? -1 : (contentA > contentB) ? 1 : 0;
@@ -198,15 +198,15 @@ let sortBy = function(typ,dir){
     $(result).appendTo("#left-panel");
 }
 
-$.getJSON("assets/js/default_list.json", function(json) {
-    for(let loc in json){
+$.getJSON("assets/js/default_list.json", function (json) {
+    for (let loc in json) {
         //console.log(json[loc])
         getDataByCityId(json[loc].id);
     }
-    sortBy("temp",sortDirection);
+    sortBy("temp", sortDirection);
 });
 
-$("#left-panel").on('click','.city-list-item', function(){
+$("#left-panel").on('click', '.city-list-item', function () {
     data = weatherData[$(this).attr("id")];
     //console.log(data);
     const center = new google.maps.LatLng(data.coord.lat, data.coord.lon);
@@ -217,7 +217,7 @@ $("#left-panel").on('click','.city-list-item', function(){
 
     var marker = new google.maps.Marker({
         position: center,
-        title:data.name
+        title: data.name
     });
     $(".city-list-item.active").removeClass("active");
     $(this).addClass("active");
@@ -226,32 +226,34 @@ $("#left-panel").on('click','.city-list-item', function(){
     getForecastByCityId(data.id);
 })
 
-$("#sort-arrow").click(function(){ 
+$("#sort-arrow").click(function () {
     $(this).toggleClass("open");
-    if($(this).hasClass("open")) {  
-        $(".option").each(function(){        
+    if ($(this).hasClass("open")) {
+        $(".option").each(function () {
             $(this).show();
         });
     }
-    else{
-        $(".option").each(function(){        
+    else {
+        $(".option").each(function () {
             $(this).hide();
         });
     }
 });
 
-$(".option").click(function(){
-    $(".option").each(function(){        
+$(".option").click(function () {
+    if (!$("this").hasClass("active"))
+        $("#sort-arrow").toggleClass("open");
+    $(".option").each(function () {
         $(this).hide();
     });
     $(".option.active").removeClass("active");
     $(this).addClass("active");
     let sortType = $(this).attr("sort");
-    sortBy(sortType,sortDirection);
+    sortBy(sortType, sortDirection);
 });
 
-$("#heatMapToggle").click(function(){
+$("#heatMapToggle").click(function () {
     $(this).toggleClass("enabled");
     heatMapEnabled = !heatMapEnabled;
-    initMap(global_lat,global_lng);
+    initMap(global_lat, global_lng);
 });
