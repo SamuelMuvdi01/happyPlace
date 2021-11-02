@@ -41,7 +41,6 @@ header {
 }
 .header-text {
     margin: auto;
-
     font-size: 6vh;
 }
 .light-yellow { color: #ffffbb; }
@@ -60,15 +59,24 @@ header {
 
 .icon { 
     padding: 1.6vh; 
+    border: none;
     border-radius: .8vh;
 
     background: white;
 
     cursor: pointer;
 }
+.fas { font-size: 2.4vh; }
 
-#heatMapToggle { margin-left: 2vw; }
-
+#heatMapToggle { 
+    max-height: 6vh;
+    overflow: hidden;
+    margin-left: 2vw; 
+}
+#heatMapToggle:active {
+    background-color: rgb(153,153,153);
+    color: white; 
+}
 #heatMapToggle.enabled {
     background-color: rgb(153,153,153);
     color: white;
@@ -76,14 +84,16 @@ header {
 
 #sort-by {
     width: auto;
-    height: auto;
+    height: 6vh;
+    max-height: 6vh;
     margin-left: 2vw;
 
     border-radius: .8vh;
     background: white;
 
     display: flex;
-    align-items: top;
+
+    font-size: 2.4vh;
 }
 #sort-arrow { float: right; }
 #sort-arrow:hover {
@@ -102,6 +112,33 @@ header {
 }
 .option.active {
     display: flex !important;
+}
+
+#searchBarContainer {
+    position: absolute;
+    z-index: 1;
+    top: 2vh;
+    right: 2vw;
+}
+#searchBar {
+    width: 20vw;
+    height: 6vh;
+    border: none;
+    border-radius: .8vh;
+
+    font-size: 2.4vh;
+}
+#searchButton {
+    position: absolute;
+    z-index: 2;
+    top: 2vh;
+    right: 2vw;
+
+    height: 6vh;
+}
+#searchButton:active {
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
 }
 
 #left-panel {
@@ -195,10 +232,19 @@ header {
 
 @media screen and (max-width: 768px) {
     #toolbox {
-        top: 9vh;
+        top: calc(8vh + 2vw);
         width: auto;
-
         z-index: 5;
+    }
+
+    #searchBarContainer {
+        top: calc(10vh + 2vw);
+    }
+    #searchBar {
+        width: 46vw;
+    }
+    #searchButton {
+        top: calc(10vh + 2vw);
     }
 
     #left-panel {
