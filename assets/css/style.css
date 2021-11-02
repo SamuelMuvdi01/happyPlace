@@ -245,9 +245,17 @@ header {
         background-color: rgb(153,153,153);
         color: white; 
     }
+    #heatMapToggle:hover {
+        background-color: white;
+        color: black; 
+    }
     #sort-arrow:active {
         background: rgba(0, 0, 0, 0.4);
         color: white;
+    }
+    #sort-arrow:hover {
+        background-color: white;
+        color: black; 
     }
     .option:active {
         background: rgba(0, 0, 0, 0.4);
@@ -262,7 +270,6 @@ header {
     }
     #searchButton {
         top: calc(10vh + 2vw);
-        z-index: 2000;
     }
 
     #left-panel {
