@@ -141,6 +141,8 @@ header {
     right: 2vw;
 
     height: 6vh;
+
+    color: black;
 }
 #searchButton:active {
     background: rgba(0, 0, 0, 0.4);
@@ -250,7 +252,7 @@ header {
         width: 46vw;
     }
     #searchButton {
-        top: calc(10vh + 8vw);
+        top: calc(10vh + 2vw);
         z-index: 2000;
     }
 
