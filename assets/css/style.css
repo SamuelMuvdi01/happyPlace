@@ -28,7 +28,8 @@ html, body {
 }
 
 header {
-    height: 9.5vh;
+    height: 9vh;
+    border-top: .5vh solid #efefef;
     border-bottom: 0.5vh solid #efefef;
 
     background: linear-gradient( 
