@@ -250,7 +250,7 @@ header {
         width: 46vw;
     }
     #searchButton {
-        top: calc(10vh + 2vw);
+        top: calc(10vh + 8vw);
         z-index: 2000;
     }
 
