@@ -12,6 +12,7 @@ html, body {
     height: 100%;
     overflow: hidden;
     position: fixed;
+    background-color: rgba(244, 244, 130, 1);
 }
 
 .flex-center {
