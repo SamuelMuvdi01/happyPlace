@@ -37,7 +37,7 @@ function initMap(lat, long) {
         zoomControl: true,
         mapTypeControl: false,
         scaleControl: true,
-        streetViewControl: true,
+        streetViewControl: false,
         overviewMapControl: true,
         rotateControl: true,
         fullscreenControl: false
@@ -259,6 +259,7 @@ $("#heatMapToggle").click(function () {
 });
 
 function registerServiceWorker() {
+
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('./sw.js')
             .then(function (registration) {
@@ -269,4 +270,5 @@ function registerServiceWorker() {
                 console.log('ServiceWorker registration failed: ', err);
             });
     }
+
 }
