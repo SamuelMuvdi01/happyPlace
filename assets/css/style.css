@@ -102,10 +102,6 @@ header {
     cursor: pointer;
     border-radius: .8vh;
 }
-.option:hover {
-    background: rgba(0, 0, 0, 0.4);
-    color: #efefef;
-}
 .option.active {
     display: flex !important;
 }
@@ -252,10 +248,6 @@ header {
     #sort-arrow:active {
         background: rgba(0, 0, 0, 0.4);
         color: #efefef;
-    }
-    #option:hover {
-        background-color: #efefef;
-        color: black; 
     }
     .option:active {
         background: rgba(0, 0, 0, 0.4);
