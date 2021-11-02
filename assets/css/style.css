@@ -119,14 +119,20 @@ header {
     z-index: 1;
     top: 2vh;
     right: 2vw;
-}
-#searchBar {
-    width: 20vw;
-    height: 6vh;
+
+    min-width: 20vw;
+    min-height: 6vh;
     border: none;
     border-radius: .8vh;
-
+}
+#searchBar {
     font-size: 2.4vh;
+    padding-left: 2vw;
+
+    min-width: 20vw;
+    min-height: 6vh;
+    border: none;
+    border-radius: .8vh;
 }
 #searchButton {
     position: absolute;
