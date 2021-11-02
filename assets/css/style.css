@@ -245,25 +245,21 @@ header {
         background-color: rgb(153,153,153);
         color: #efefef; 
     }
-    #heatMapToggle:hover {
-        background-color: unset;
-        color: unset; 
+    #sort-arrow:hover {
+        background-color: #efefef;
+        color: black; 
     }
     #sort-arrow:active {
         background: rgba(0, 0, 0, 0.4);
         color: #efefef;
     }
-    #sort-arrow:hover {
-        background-color: unset;
-        color: unset; 
+    #option:hover {
+        background-color: #efefef;
+        color: black; 
     }
     .option:active {
         background: rgba(0, 0, 0, 0.4);
         color: #efefef;
-    }
-    #option:hover {
-        background-color: unset;
-        color: unset; 
     }
 
     #searchBarContainer {
