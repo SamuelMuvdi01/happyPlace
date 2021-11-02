@@ -251,6 +251,7 @@ header {
     }
     #searchButton {
         top: calc(10vh + 2vw);
+        z-index: 2000;
     }
 
     #left-panel {
