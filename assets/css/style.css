@@ -70,7 +70,7 @@ header {
 #heatMapToggle { margin-left: 2vw; }
 
 #heatMapToggle.enabled {
-    background: rgba(0, 0, 0, 0.4);
+    background-color: rgb(153,153,153);
     color: white;
 }
 
