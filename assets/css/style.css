@@ -12,7 +12,7 @@ html, body {
     height: 100%;
     overflow: hidden;
     position: fixed;
-    background-color: #51ABDE;
+    background-color: rgba(0, 167, 225, 1);
 }
 
 .flex-center {
@@ -42,7 +42,7 @@ header {
 .header-text {
     margin: auto;
 
-    font-size: 7vh;
+    font-size: 6vh;
 }
 .light-yellow { color: #ffffbb; }
 .light-blue { color: #d2f4ff; }
@@ -70,7 +70,7 @@ header {
 #heatMapToggle { margin-left: 2vw; }
 
 #heatMapToggle.enabled {
-    background: rgb(122, 159, 190);
+    background: rgba(0, 0, 0, 0.4);
     color: white;
 }
 
@@ -87,7 +87,7 @@ header {
 }
 #sort-arrow { float: right; }
 #sort-arrow:hover {
-    background: rgb(122, 159, 190);
+    background: rgba(0, 0, 0, 0.4);
     color: white;
 }
 .option {
@@ -97,7 +97,7 @@ header {
     border-radius: .8vh;
 }
 .option:hover {
-    background: rgb(122, 159, 190);
+    background: rgba(0, 0, 0, 0.4);
     color: white;
 }
 .option.active {
@@ -133,7 +133,7 @@ header {
     cursor: pointer;
 }
 .city-list-item:hover {
-    background: rgb(122, 159, 190);
+    background: rgba(0, 0, 0, 0.4);
     color: white;
 }
 .city-list-item.active {
