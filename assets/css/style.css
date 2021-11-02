@@ -62,7 +62,7 @@ header {
     border: none;
     border-radius: .8vh;
 
-    background: white;
+    background: #efefef;
 
     cursor: pointer;
 }
@@ -73,13 +73,9 @@ header {
     overflow: hidden;
     margin-left: 2vw; 
 }
-#heatMapToggle:active {
-    background-color: rgb(153,153,153);
-    color: white; 
-}
 #heatMapToggle.enabled {
     background-color: rgb(153,153,153);
-    color: white;
+    color: #efefef;
 }
 
 #sort-by {
@@ -89,26 +85,22 @@ header {
     margin-left: 2vw;
 
     border-radius: .8vh;
-    background: white;
+    background: #efefef;
 
     display: flex;
 
     font-size: 2.4vh;
 }
-#sort-arrow { float: right; }
+#sort-arrow { float: left; }
 #sort-arrow:hover {
     background: rgba(0, 0, 0, 0.4);
-    color: white;
+    color: #efefef;
 }
 .option {
     padding: 1.6vh;
     display: none;
     cursor: pointer;
     border-radius: .8vh;
-}
-.option:hover {
-    background: rgba(0, 0, 0, 0.4);
-    color: white;
 }
 .option.active {
     display: flex !important;
@@ -119,26 +111,34 @@ header {
     z-index: 1;
     top: 2vh;
     right: 2vw;
-}
-#searchBar {
-    width: 20vw;
-    height: 6vh;
+
+    min-width: 20vw;
+    min-height: 6vh;
     border: none;
     border-radius: .8vh;
-
+}
+#searchBar {
     font-size: 2.4vh;
+    padding-left: 2vw;
+
+    min-width: 20vw;
+    min-height: 6vh;
+    border: none;
+    border-radius: .8vh;
 }
 #searchButton {
     position: absolute;
-    z-index: 2;
+    z-index: 10;
     top: 2vh;
     right: 2vw;
 
     height: 6vh;
+
+    color: black;
 }
 #searchButton:active {
     background: rgba(0, 0, 0, 0.4);
-    color: white;
+    color: #efefef;
 }
 
 #left-panel {
@@ -154,7 +154,7 @@ header {
 
     overflow-y: auto;
 
-    background: white;
+    background: #efefef;
     border-radius: .8vh;
 
     z-index: 1;
@@ -171,11 +171,11 @@ header {
 }
 .city-list-item:hover {
     background: rgba(0, 0, 0, 0.4);
-    color: white;
+    color: #efefef;
 }
 .city-list-item.active {
     background-color: rgba(0, 167, 225, 1);
-    color: white;
+    color: #efefef;
 }
 
 .city-name {
@@ -196,7 +196,7 @@ header {
     padding-top: 1vh;
 }
 .city-forecast {
-    background: white;
+    background: #efefef;
     display: table;
     color: black;
     border-radius: 5px;
@@ -235,6 +235,23 @@ header {
         top: calc(8vh + 2vw);
         width: auto;
         z-index: 5;
+    }
+
+    #heatMapToggle:active {
+        background-color: rgb(153,153,153);
+        color: #efefef; 
+    }
+    #sort-arrow:hover {
+        background-color: #efefef;
+        color: black; 
+    }
+    #sort-arrow:active {
+        background: rgba(0, 0, 0, 0.4);
+        color: #efefef;
+    }
+    .option:active {
+        background: rgba(0, 0, 0, 0.4);
+        color: #efefef;
     }
 
     #searchBarContainer {
@@ -289,7 +306,7 @@ header {
 /* Track */
 
 ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px rgba(128, 128, 128, 0);
+    box-shadow: inset 0 0 5px #efefef;
     border-radius: 10px;
 }
 
@@ -297,7 +314,7 @@ header {
 /* Handle */
 
 ::-webkit-scrollbar-thumb {
-    background: rgb(209, 209, 209);
+    background: rgba(0, 0, 0, 0.4);
     border-radius: 10px;
 }
 
@@ -305,5 +322,5 @@ header {
 /* Handle on hover */
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #004f8f;
+    background: rgba(0, 167, 225, 1);
 }
