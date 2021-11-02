@@ -96,7 +96,7 @@ header {
     font-size: 2.4vh;
 }
 #sort-arrow { float: right; }
-#sort-arrow:hover {
+#sort-arrow:active {
     background: rgba(0, 0, 0, 0.4);
     color: white;
 }
@@ -106,7 +106,7 @@ header {
     cursor: pointer;
     border-radius: .8vh;
 }
-.option:hover {
+.option:active {
     background: rgba(0, 0, 0, 0.4);
     color: white;
 }
