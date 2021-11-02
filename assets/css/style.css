@@ -73,10 +73,6 @@ header {
     overflow: hidden;
     margin-left: 2vw; 
 }
-#heatMapToggle:active {
-    background-color: rgb(153,153,153);
-    color: white; 
-}
 #heatMapToggle.enabled {
     background-color: rgb(153,153,153);
     color: white;
@@ -96,7 +92,7 @@ header {
     font-size: 2.4vh;
 }
 #sort-arrow { float: right; }
-#sort-arrow:active {
+#sort-arrow:hover {
     background: rgba(0, 0, 0, 0.4);
     color: white;
 }
@@ -106,7 +102,7 @@ header {
     cursor: pointer;
     border-radius: .8vh;
 }
-.option:active {
+.option:hover {
     background: rgba(0, 0, 0, 0.4);
     color: white;
 }
@@ -243,6 +239,19 @@ header {
         top: calc(8vh + 2vw);
         width: auto;
         z-index: 5;
+    }
+
+    #heatMapToggle:active {
+        background-color: rgb(153,153,153);
+        color: white; 
+    }
+    #sort-arrow:active {
+        background: rgba(0, 0, 0, 0.4);
+        color: white;
+    }
+    .option:active {
+        background: rgba(0, 0, 0, 0.4);
+        color: white;
     }
 
     #searchBarContainer {
