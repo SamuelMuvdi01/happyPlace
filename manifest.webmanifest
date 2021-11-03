@@ -3,12 +3,12 @@
     "short_name": "HappyPlace",
     "icons": [
         {
-            "src": "./assets/components/hp-icon192.png",
+            "src": "./assets/icons/hp-icon192.png",
             "type": "image/png",
             "sizes": "192x192"
         },
         {
-            "src": "./assets/components/hp-icon512.png",
+            "src": "./assets/icons/hp-icon512.png",
             "type": "image/png",
             "sizes": "512x512"
         }
@@ -19,5 +19,5 @@
     "scope": "./",
     "theme_color": "#d2f4ff",
     "orientation": "portrait",
-    "description": "Information for undecided travelers."
+    "description": "Matching undecided travelers with compatible destinations."
 }

@@ -13,8 +13,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <link rel="manifest" href="./manifest.webmanifest" crossorigin="use-credentials">
-    <link rel="icon" href="./assets/components/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/components/apple-touch-icon.png">
+    <link rel="icon" href="./assets/icons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png">
 </head>
 
 <body onload="registerServiceWorker()">
@@ -27,12 +27,12 @@
     <section class="flex-center" id="toolbox">
 
         <div class="icon box-shadow" id="heatMapToggle">
-            <div class="fas fa-temperature-high"></div>
+            <p class="dripicon">&#xe02d;</p>
         </div>
 
         <div class="box-shadow" id="sort-by">
             <div class="icon" id="sort-arrow">
-                <div class="fas fa-angle-right"></div>
+                <p class="dripicon">V</p>
             </div>
 
             <p class="option active" sort="temp">Temp</p>
@@ -46,7 +46,9 @@
         <input id="searchBar" type="text" placeholder="Search..">
     </div>
 
-    <button class="icon" id="searchButton" type="submit"><div class="fas fa-search" id="searchButtonIcon"></div></button>
+    <button class="icon" id="searchButton" type="submit">
+        <p class="dripicon">&#xe041;</p></div>
+    </button>
 
     <div id="left-panel" class="box-shadow"></div>
 

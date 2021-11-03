@@ -1,4 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+@font-face {
+    font-family: "Comfortaa";
+    src: url("./comfortaa.ttf");
+}
+
+@font-face {
+    font-family: "Dripicons";
+    src: url("./dripicons-v2.woff");
+}
+.dripicon {
+    font-family: "Dripicons";
+    font-size: 2.4vh;
+    font-weight: bold;
+}
 
 * {
     font-family: "Comfortaa", system-ui, sans-serif;
@@ -66,7 +79,6 @@ header {
 
     cursor: pointer;
 }
-.fas { font-size: 2.4vh; }
 
 #heatMapToggle { 
     max-height: 6vh;
@@ -107,13 +119,15 @@ header {
 }
 
 #searchBarContainer {
+    min-width: 20vw;
+    height: 6vh;
+
     position: absolute;
     z-index: 1;
     top: 2vh;
     right: 2vw;
 
-    min-width: 20vw;
-    min-height: 6vh;
+    
     border: none;
     border-radius: .8vh;
 }
