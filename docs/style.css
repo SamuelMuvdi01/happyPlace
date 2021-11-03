@@ -1,11 +1,11 @@
 @font-face {
     font-family: "Comfortaa";
-    src: url("./comfortaa.ttf");
+    src: url("./assets/fonts/comfortaa.ttf");
 }
 
 @font-face {
     font-family: "Dripicons";
-    src: url("./dripicons-v2.woff");
+    src: url("./assets/fonts/dripicons-v2.woff");
 }
 .dripicon {
     font-family: "Dripicons";

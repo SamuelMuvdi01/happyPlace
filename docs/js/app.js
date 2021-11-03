@@ -198,7 +198,7 @@ let sortBy = function (typ, dir) {
     $(result).appendTo("#left-panel");
 }
 
-$.getJSON("assets/js/default_list.json", function (json) {
+$.getJSON("./js/default_list.json", function (json) {
     for (let loc in json) {
         //console.log(json[loc])
         getDataByCityId(json[loc].id);
