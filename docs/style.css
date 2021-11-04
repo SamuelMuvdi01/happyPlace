@@ -146,19 +146,26 @@ header {
     background: rgba(0, 0, 0, 0.4);
     color: #efefef;
 }
-
-#searchBar {
-    font-size: 2.4vh;
-    padding-left: 2vw;
-
+#searchBar-container {
     position: absolute;
     z-index: 1;
 
     top: calc(10vh + 2vw);
-    width: 46vw;
     right: 2vw;
 
-    min-height: 6vh;
+    width: 46vw;
+    height: 6vh;
+
+    border: none;
+    border-radius: .8vh;
+}
+#searchBar {
+    font-size: 2.4vh;
+    padding-left: 2vw;
+
+    width: 46vw;
+    height: 6vh;
+
     border: none;
     border-radius: .8vh;
 }
@@ -280,8 +287,11 @@ header {
         color: #efefef;
     }
 
-    #searchBar {
+    #searchBar-container {
         top: 2vh;
+        width: 20vw;
+    }
+    #searchBar {
         width: 20vw;
     }
 
