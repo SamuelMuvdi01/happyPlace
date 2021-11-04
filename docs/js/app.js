@@ -33,6 +33,7 @@ function initMap(lat, long) {
     map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: lat, lng: long },
         zoom: 8,
+        minZoom: 2,
         panControl: true,
         zoomControl: true,
         mapTypeControl: false,
@@ -50,7 +51,7 @@ function initMap(lat, long) {
             },
             tileSize: new google.maps.Size(256, 256),
             maxZoom: 9,
-            minZoom: 0,
+            minZoom: 2,
             name: 'heatMap'
         });
 
@@ -110,10 +111,7 @@ let getDataByCityId = function (id) {
 }
 
 let getForecastByCityId = function (id) {
-    let url = forecast_city_id_url(id)
-    $(".city-forecast").each(function () {
-        $(this).empty().hide();
-    });
+    let url = forecast_city_id_url(id);
     //console.log(url);
     $.get(url, function (wdata) {
         console.log(wdata);
@@ -219,11 +217,21 @@ $("#left-panel").on('click', '.city-list-item', function () {
         position: center,
         title: data.name
     });
+
+    let deactivate = $(this).hasClass("active");
     $(".city-list-item.active").removeClass("active");
-    $(this).addClass("active");
+    $(".city-forecast").each(function () {
+        $(this).empty().hide();
+    });
+
+    if (!deactivate) {
+        $(this).addClass("active");
+        marker.setMap(map);
+        getForecastByCityId(data.id);
+    }
+
     // To add the marker to the map, call setMap();
-    marker.setMap(map);
-    getForecastByCityId(data.id);
+
 })
 
 $("#sort-arrow").click(function () {
@@ -241,8 +249,8 @@ $("#sort-arrow").click(function () {
 });
 
 $(".option").click(function () {
-    if (!$("this").hasClass("active"))
-        $("#sort-arrow").toggleClass("open");
+
+    $("#sort-arrow").removeClass("open");
     $(".option").each(function () {
         $(this).hide();
     });
