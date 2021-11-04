@@ -1,3 +1,7 @@
+/***
+****    MOBILE FIRST CSS
+***/
+
 @font-face {
     font-family: "Comfortaa";
     src: url("./assets/fonts/comfortaa.ttf");
@@ -18,7 +22,6 @@
     margin: 0;
     padding: 0;
 }
-
 html, body {
     /* Why is this needed? */
     width: 100vw;
@@ -26,6 +29,11 @@ html, body {
     overflow: hidden;
     position: fixed;
     background-color: rgba(0, 167, 225, 1);
+
+    -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .flex-center {
@@ -61,9 +69,11 @@ header {
 
 #toolbox {
     position: absolute;
-    top:0;
+    z-index: 5;
 
-    width: 30vw;
+    top: calc(8vh + 2vw);
+    width: auto;
+
     height: 10vh;
 
     display: flex;
@@ -89,6 +99,10 @@ header {
     background-color: rgb(153,153,153);
     color: #efefef;
 }
+#heatMapToggle:active {
+    background-color: rgb(153,153,153);
+    color: #efefef; 
+}
 
 #sort-by {
     width: auto;
@@ -103,47 +117,56 @@ header {
 
     font-size: 2.4vh;
 }
-#sort-arrow { float: left; }
+#sort-arrow { 
+    float: left; 
+    border-right: 1px solid rgba(0, 0, 0, 0.4);
+}
 #sort-arrow:hover {
+    background-color: #efefef;
+    color: black; 
+}
+#sort-arrow:active {
     background: rgba(0, 0, 0, 0.4);
     color: #efefef;
 }
+
 .option {
     padding: 1.6vh;
     display: none;
     cursor: pointer;
     border-radius: .8vh;
+
+    background-color: #efefef;
+    color: black;
 }
 .option.active {
     display: flex !important;
 }
-
-#searchBarContainer {
-    min-width: 20vw;
-    height: 6vh;
-
-    position: absolute;
-    z-index: 1;
-    top: 2vh;
-    right: 2vw;
-
-    
-    border: none;
-    border-radius: .8vh;
+.option:active {
+    background: rgba(0, 0, 0, 0.4);
+    color: #efefef;
 }
+
 #searchBar {
     font-size: 2.4vh;
     padding-left: 2vw;
 
-    min-width: 20vw;
+    position: absolute;
+    z-index: 1;
+
+    top: calc(10vh + 2vw);
+    width: 46vw;
+    right: 2vw;
+
     min-height: 6vh;
     border: none;
     border-radius: .8vh;
 }
+
 #searchButton {
     position: absolute;
     z-index: 10;
-    top: 2vh;
+    top: calc(10vh + 2vw);
     right: 2vw;
 
     height: 6vh;
@@ -159,12 +182,13 @@ header {
     float: left;
     position: absolute;
     
-    top: 15vh;
-    left: 2vw;
+    top: unset;
+    left: 0px;
+    bottom: 0px;
 
-    width: 20%;
-    min-width: 600px;
-    height: 80vh;
+    width: 100%;
+    min-width: 300px;
+    height: 30vh;
 
     overflow-y: auto;
 
@@ -193,7 +217,7 @@ header {
 }
 
 .city-name {
-    font-size: 4vh;
+    font-size: 3vh;
     float: left;
 }
 .city-temp {
@@ -201,7 +225,7 @@ header {
     position: relative;
     right: 1vh;
     top: 2vh;
-    font-size: 4vh;
+    font-size: 3vh;
 }
 .city-desc {
     width: 100%;
@@ -216,6 +240,7 @@ header {
     border-radius: 5px;
     width: 100%;
     margin-top: 15px;
+    font-size: 3.5vw;
 }
 
 .forecast-item {
@@ -235,78 +260,58 @@ header {
 }
 
 #map-container {
-    height: 90vh;
     width: 100%;
+    height: 60vh;
 }
 #map {
     height: 100%;
     width: 100%;
 }
-/* Mobile css */
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
+    
     #toolbox {
-        top: calc(8vh + 2vw);
-        width: auto;
-        z-index: 5;
+        top:0;
+        width: 30vw;
     }
 
-    #heatMapToggle:active {
-        background-color: rgb(153,153,153);
-        color: #efefef; 
-    }
     #sort-arrow:hover {
-        background-color: #efefef;
-        color: black; 
-    }
-    #sort-arrow:active {
-        background: rgba(0, 0, 0, 0.4);
-        color: #efefef;
-    }
-    .option:active {
         background: rgba(0, 0, 0, 0.4);
         color: #efefef;
     }
 
-    #searchBarContainer {
-        top: calc(10vh + 2vw);
-    }
     #searchBar {
-        width: 46vw;
+        top: 2vh;
+        width: 20vw;
     }
+
     #searchButton {
-        top: calc(10vh + 2vw);
+        top: 2vh;
     }
 
     #left-panel {
-        left: 0px !important;
-        top: unset !important;
-        bottom: 0px;
-        height: 30vh;
-        width: 100% !important;
-        min-width: 300px !important;
+        left: 2vw;
+        top: 15vh;
+        bottom: unset;
+        height: 80vh;
+        width: 20%;
+        min-width: 600px;
     }
+
     .city-name,
     .city-temp {
-        font-size: 3vh;
+        font-size: 4vh;
     }
+
     #map-container {
-        width: 100% !important;
-        height: 60vh;
+        width: 100%;
+        height: 90vh;
     }
+
     .city-forecast {
-        width: 100% !important;
-        font-size: 3.5vw;
+        width: 100%;
+        font-size: unset;
     }
-    /*.forecast-item {
-        width: auto;
-        float: none;
-        border-right: 0px;
-        border-top: 1px solid rgba(0, 0, 0, 0.521)
-    }
-    .forecast-item:first-child {
-        border: 0px;
-    }*/
 }
 
 
