@@ -295,6 +295,7 @@ header {
     }
     #searchBar {
         min-width: 20vw;
+        width: 20vw;
     }
 
     #searchButton {
