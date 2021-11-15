@@ -1,0 +1,56 @@
+// https://dbdiagram.io/
+
+// Creating tables
+Table users as U {
+	id int [pk, increment] // auto-increment
+	psswd varchar
+	full_name varchar
+	created_at timestamp
+	location_id int
+}
+
+Table locations as L {
+	id int [pk, increment]
+	name varchar
+	state varchar
+	country varchar
+	coord_id int
+ }
+ 
+ Table coordinates as C{
+	id int [pk, increment]
+	lng int 
+	lat int
+ }
+
+// Creating references
+Ref: U.location_id > L.id
+Ref: L.coord_id > C.id
+
+//----------------------------------------------//
+
+// Creating refence tables
+Table covid_data as CD {
+	loc_id int [ref: > L.id]
+	total_deaths int
+	total_cases int
+}
+
+Table historical_weather_data {
+	loc_id int [ref: > L.id]
+	time timestamp
+	temp int
+	weather varchar
+}
+
+Table historical_covid_data {
+	loc_id int [ref: > L.id]
+	time timestamp
+	cases int
+}
+
+Table user_logs {
+	user_id int [ref: > U.id]
+	datetime timestamp
+	location_viewed_id int [ref: > L.id]
+ }
